@@ -8,6 +8,8 @@ $(document).ready(function () {
   var futureEvent = $(".future");
   var eventText = $(".description");
   var saveButton = $(".saveBtn");
+  var header = $("header");
+  var confirmEventLS = $("<p>");
 
   currentDay.text(dayjs().format("dddd, MMMM Do"));
 
@@ -21,6 +23,9 @@ $(document).ready(function () {
     eventFromLS.push({ time: time, eventText: eventText });
 
     localStorage.setItem("events", JSON.stringify(eventFromLS));
+
+    confirmEventLS = "Appointment added to Local Storage ✅";
+    header.append(confirmEventLS);
   }
   saveButton.on("click", saveEvent);
 
