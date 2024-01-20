@@ -24,7 +24,11 @@ $(document).ready(function () {
 
     localStorage.setItem("events", JSON.stringify(eventFromLS));
 
-    confirmEventLS = "Appointment added to Local Storage ✅";
+    confirmEventLS
+      .text("Appointment added to Local Storage ✅")
+      .show()
+      .delay(1000)
+      .fadeOut();
     header.append(confirmEventLS);
   }
   saveButton.on("click", saveEvent);
