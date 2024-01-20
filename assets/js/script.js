@@ -15,27 +15,25 @@ $(document).ready(function () {
 
   // Save Event upon Button Click
   function saveEvent() {
-    var eventFromLS = storeEvent();
+    initLS(time);
 
     var time = $(this).closest(".row").find(".currentTime").text();
-    var eventText = $(this).closest(".row").find(".description").val();
+    var eventText = $(this).closest(".row").find(".description").val().trim();
 
-    eventFromLS.push({ time: time, eventText: eventText });
-
-    localStorage.setItem("events", JSON.stringify(eventFromLS));
+    localStorage.setItem(time, JSON.stringify(eventText));
 
     confirmEventLS
       .text("Appointment added to Local Storage ✅")
       .show()
-      .delay(1000)
+      .delay(1500)
       .fadeOut();
     header.append(confirmEventLS);
   }
   saveButton.on("click", saveEvent);
 
   // Retrieve Events from Local Storage
-  function storeEvent() {
-    var eventFromLS = localStorage.getItem("events");
+  function initLS(time) {
+    var eventFromLS = localStorage.getItem(time);
     if (eventFromLS === null || eventFromLS === undefined) {
       eventFromLS = [];
     } else {
