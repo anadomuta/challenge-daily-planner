@@ -13,6 +13,21 @@ $(document).ready(function () {
 
   currentDay.text(dayjs().format("dddd, MMMM Do"));
 
+  function updateColor() {
+    var textAreas = $(".description").toArray(); // convert all textareas into arrays
+    console.log(textAreas);
+    var currentTime = parseInt(dayjs().format("H")); // convert into numeric value
+
+    textAreas.forEach((timeBlockText) => {
+      var blockTime = $(timeBlockText).attr("data-time");
+      blockTime = parseInt(blockTime);
+
+      console.log(blockTime);
+    });
+  }
+
+  updateColor();
+
   // Save Event upon Button Click
   function saveEvent() {
     initLS(time);
