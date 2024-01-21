@@ -13,16 +13,40 @@ $(document).ready(function () {
 
   currentDay.text(dayjs().format("dddd, MMMM Do"));
 
+  // Update Timeblocks Color
   function updateColor() {
-    var textAreas = $(".description").toArray(); // convert all textareas into arrays
-    console.log(textAreas);
+    var textareaElements = $(".description").toArray(); // convert all textareas into arrays
     var currentTime = parseInt(dayjs().format("H")); // convert into numeric value
 
-    textAreas.forEach((timeBlockText) => {
-      var blockTime = $(timeBlockText).attr("data-time");
+    textareaElements.forEach((textareaElement) => {
+      var blockTime = $(textareaElement).attr("data-time");
       blockTime = parseInt(blockTime);
 
-      console.log(blockTime);
+      var hourElement = $(textareaElement)
+        .parent()
+        .siblings(".col-sm-1")
+        .children(".currentTime");
+
+      // Retrieve hour value from Local Storage
+      function timeBlockByHour(hourElement) {
+        var hourValue = $(hourElement).text();
+        return JSON.parse(localStorage.getItem(hourValue));
+      }
+
+      $(textareaElement).text(timeBlockByHour(hourElement));
+
+      // Conditional Styling of Text Areas
+      if (currentTime === blockTime) {
+        $(textareaElement).addClass("present");
+      }
+
+      if (currentTime < blockTime) {
+        $(textareaElement).addClass("future");
+      }
+
+      if (currentTime > blockTime) {
+        $(textareaElement).addClass("past");
+      }
     });
   }
 
