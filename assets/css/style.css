@@ -22,6 +22,11 @@ header {
   padding: 60px;
 }
 
+.col-sm-10,
+.col-sm-1 {
+  padding: 0px !important;
+}
+
 thead {
   text-align: center;
 }
@@ -49,7 +54,10 @@ thead {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
-  text-align: center
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px !important
 }
 
 .past {
