@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Work Day Scheduler</title>
 </head>
@@ -27,62 +28,52 @@
         <tr class="row">
           <td class="col-sm-1 hour"><span class="currentTime">9AM</span></td>
           <td class="col-sm-10"><textarea data-time="9" placeholder="Enter event" class="description"></textarea></td>
-          <td class="col-sm-1"><button class="saveBtn">
-            </button></td>
+          <td class="col-sm-1"><button class="saveBtn"><i class="fas fa-save"></i></button></td>
         </tr>
         <tr class="row">
           <td class="col-sm-1 hour"><span class="currentTime">10AM</span></td>
           <td class="col-sm-10"><textarea data-time="10" placeholder="Enter event" class="description"></textarea></td>
-          <td class="col-sm-1"><button class="saveBtn">
-            </button></td>
+          <td class="col-sm-1"><button class="saveBtn"><i class="fas fa-save"></i></button></td>
         </tr>
         <tr class="row">
           <td class="col-sm-1 hour"><span class="currentTime">11AM</span></td>
           <td class="col-sm-10"><textarea data-time="11" placeholder="Enter event" class="description"></textarea></td>
-          <td class="col-sm-1"><button class="saveBtn">
-            </button></td>
+          <td class="col-sm-1"><button class="saveBtn"><i class="fas fa-save"></i></button></td>
         </tr>
         <tr class="row">
           <td class="col-sm-1 hour"><span class="currentTime">12PM</span></td>
           <td class="col-sm-10"><textarea data-time="12" placeholder="Enter event" class="description"></textarea></td>
-          <td class="col-sm-1"><button class="saveBtn">
-            </button></td>
+          <td class="col-sm-1"><button class="saveBtn"><i class="fas fa-save"></i></button></td>
         </tr>
         <tr class="row">
           <td class="col-sm-1 hour"><span class="currentTime">1PM</span></td>
           <td class="col-sm-10"><textarea data-time="13" placeholder="Enter event" class="description"></textarea></td>
-          <td class="col-sm-1"><button class="saveBtn">
-            </button></td>
+          <td class="col-sm-1"><button class="saveBtn"><i class="fas fa-save"></i></button></td>
         </tr>
         <tr class="row">
           <td class="col-sm-1 hour"><span class="currentTime">2PM</span></td>
           <td class="col-sm-10"><textarea data-time="14" placeholder="Enter event" class="description"></textarea></td>
-          <td class="col-sm-1"><button class="saveBtn">
-            </button></td>
+          <td class="col-sm-1"><button class="saveBtn"><i class="fas fa-save"></i></button></td>
         </tr>
         <tr class="row">
           <td class="col-sm-1 hour"><span class="currentTime">3PM</span></td>
           <td class="col-sm-10"><textarea data-time="15" placeholder="Enter event" class="description"></textarea></td>
-          <td class="col-sm-1"><button class="saveBtn">
-            </button></td>
+          <td class="col-sm-1"><button class="saveBtn"><i class="fas fa-save"></i></button></td>
         </tr>
         <tr class="row">
           <td class="col-sm-1 hour"><span class="currentTime">4PM</span></td>
           <td class=" col-sm-10"><textarea data-time="16" placeholder="Enter event" class="description"></textarea></td>
-          <td class="col-sm-1"><button class="saveBtn">
-            </button></td>
+          <td class="col-sm-1"><button class="saveBtn"><i class="fas fa-save"></i></button></td>
         </tr>
         <tr class="row">
           <td class="col-sm-1 hour"><span class="currentTime">5PM</span></td>
           <td class="col-sm-10"><textarea data-time="17" placeholder="Enter event" class="description"></textarea></td>
-          <td class="col-sm-1"><button class="saveBtn">
-            </button></td>
+          <td class="col-sm-1"><button class="saveBtn"><i class="fas fa-save"></i></button></td>
         </tr>
         <tr class="row">
           <td class="col-sm-1 hour"><span class="currentTime">6PM</span></td>
           <td class="col-sm-10"><textarea data-time="18" placeholder="Enter event" class="description"></textarea></td>
-          <td class="col-sm-1"><button class="saveBtn">
-            </button></td>
+          <td class="col-sm-1"><button class="saveBtn"><i class="fas fa-save"></i></button></td>
         </tr>
       </tbody>
     </table>
@@ -93,9 +84,10 @@
   <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   <script src="https://unpkg.com/dayjs@1.8.21/plugin/advancedFormat"></script>
   <script>
-
     dayjs.extend(window.dayjs_plugin_advancedFormat);
   </script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+    integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="./assets/js/script.js"></script>
 </body>
 
