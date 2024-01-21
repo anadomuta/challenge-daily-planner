@@ -1,14 +1,7 @@
 $(document).ready(function () {
   var currentDay = $("#currentDay");
-  var time = $("#hour");
-  var currentTime = $(".currentTime");
-  var colorRow = $(".col-sm-10");
-  var pastEvent = $(".past");
-  var presentEvent = $(".present");
-  var futureEvent = $(".future");
-  var eventText = $(".description");
   var saveButton = $(".saveBtn");
-  var header = $("header");
+  var confirmationEventNote = $(".message");
   var confirmEventLS = $("<p>");
 
   currentDay.text(dayjs().format("dddd, MMMM Do"));
@@ -66,7 +59,7 @@ $(document).ready(function () {
       .show()
       .delay(1500)
       .fadeOut();
-    header.append(confirmEventLS);
+    confirmationEventNote.append(confirmEventLS);
   }
   saveButton.on("click", saveEvent);
 
