@@ -16,7 +16,7 @@ The planner includes:
 
 ## Usage
 
-The webpage can be accessed using this URL: to follow
+The webpage can be accessed using this URL: https://anadomuta.github.io/challenge-daily-planner/
 
 To add an event, the user can tap on the timeblock for the current or future events, add the details of the event and tap on the save button.
 
