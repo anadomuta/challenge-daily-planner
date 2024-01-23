@@ -75,6 +75,9 @@ thead {
 
 .saveBtn {
   border-left: 1px solid black;
+  border-right: #06aed5;
+  border-top: #06aed5;
+  border-bottom: #06aed5;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
