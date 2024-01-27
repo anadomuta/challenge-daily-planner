@@ -4,13 +4,15 @@ $(document).ready(function () {
   var confirmationEventNote = $(".message");
   var confirmEventLS = $("<p>");
 
+  // Retrieving current day from DayJs using an advanced format
   currentDay.text(dayjs().format("dddd, MMMM Do"));
 
-  // Update Timeblocks Color
+  // Update timeblocks color based on current time
   function updateColor() {
-    var textareaElements = $(".description").toArray(); // convert all textareas into arrays
-    var currentTime = parseInt(dayjs().format("H")); // convert into numeric value
+    var textareaElements = $(".description").toArray(); // convert textareas into arrays
+    var currentTime = parseInt(dayjs().format("H")); // convert current time into numeric value
 
+    // Iterating through the textareas
     textareaElements.forEach((textareaElement) => {
       var blockTime = $(textareaElement).attr("data-time");
       blockTime = parseInt(blockTime);
@@ -28,7 +30,7 @@ $(document).ready(function () {
 
       $(textareaElement).text(timeBlockByHour(hourElement));
 
-      // Conditional Styling of Text Areas
+      // Conditional Styling of Text Areas by comparing the associated times with the current time
       if (currentTime === blockTime) {
         $(textareaElement).addClass("present");
       }
@@ -47,13 +49,18 @@ $(document).ready(function () {
 
   // Save Event upon Button Click
   function saveEvent() {
+    //Initialize local storage for the specific time
+
     initLS(time);
 
+    // Retrieves time and event text from the clicked button's parent row
     var time = $(this).closest(".row").find(".currentTime").text();
     var eventText = $(this).closest(".row").find(".description").val().trim();
 
+    //Stores the event text in local storage under the specified time
     localStorage.setItem(time, JSON.stringify(eventText));
 
+    // Display confirmation message when event added
     confirmEventLS
       .text("Appointment added to Local Storage ✅")
       .show()
@@ -61,16 +68,17 @@ $(document).ready(function () {
       .fadeOut();
     confirmationEventNote.append(confirmEventLS);
   }
-  saveButton.on("click", saveEvent);
 
-  // Retrieve Events from Local Storage
+  // Initialize Local Storage and retrieve any existing events from Local Storage
   function initLS(time) {
     var eventFromLS = localStorage.getItem(time);
     if (eventFromLS === null || eventFromLS === undefined) {
-      eventFromLS = [];
+      eventFromLS = []; // create empty array if no previous events
     } else {
       eventFromLS = JSON.parse(eventFromLS);
     }
-    return eventFromLS;
+    return eventFromLS; // return an array of events associated with the specified time
   }
+  // Attach the saveEvent function to the click event of saveButton
+  saveButton.on("click", saveEvent);
 });
