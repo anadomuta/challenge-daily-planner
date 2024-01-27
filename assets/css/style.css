@@ -4,15 +4,6 @@ body {
   line-height: 1;
 }
 
-textarea {
-  background: transparent;
-  border: none;
-  resize: none;
-  color: #000000;
-  border-left: 1px solid black;
-  padding: 10px;
-}
-
 header {
   text-align: center;
   background-color: transparent;
@@ -20,6 +11,16 @@ header {
   border-radius: 0;
   border-bottom: 10px solid black;
   padding: 60px;
+}
+
+/* Table styling */
+textarea {
+  background: transparent;
+  border: none;
+  resize: none;
+  color: #000000;
+  border-left: 1px solid black;
+  padding: 10px;
 }
 
 .col-sm-10,
@@ -60,6 +61,7 @@ thead {
   padding: 0px !important
 }
 
+/* Styling of Text Areas based on past, present, and future */
 .past {
   background-color: #d3d3d3;
   color: white;
@@ -73,6 +75,7 @@ thead {
   background-color: #77dd77;
 }
 
+/* Save button styling and effects */
 .saveBtn {
   border-left: 1px solid black;
   border-right: #06aed5;

@@ -7,17 +7,17 @@ $(document).ready(function () {
   // Retrieving current day from DayJs using an advanced format
   currentDay.text(dayjs().format("dddd, MMMM Do"));
 
-  // Update timeblocks color based on current time
+  // Logic to update timeblocks color based on current time
   function updateColor() {
     var textareaElements = $(".description").toArray(); // convert textareas into arrays
     var currentTime = parseInt(dayjs().format("H")); // convert current time into numeric value
 
     // Iterating through the textareas
     textareaElements.forEach((textareaElement) => {
-      var blockTime = $(textareaElement).attr("data-time");
+      var blockTime = $(textareaElement).attr("data-time"); // retrieve data-time attribute value from the current textarea
       blockTime = parseInt(blockTime);
 
-      var hourElement = $(textareaElement)
+      var hourElement = $(textareaElement) // find the hour element by traversing the DOM from the textarea.
         .parent()
         .siblings(".col-sm-1")
         .children(".currentTime");
@@ -49,15 +49,14 @@ $(document).ready(function () {
 
   // Save Event upon Button Click
   function saveEvent() {
-    //Initialize local storage for the specific time
-
+    // Initialize local storage for the specific time
     initLS(time);
 
     // Retrieves time and event text from the clicked button's parent row
     var time = $(this).closest(".row").find(".currentTime").text();
     var eventText = $(this).closest(".row").find(".description").val().trim();
 
-    //Stores the event text in local storage under the specified time
+    // Stores the event text in local storage under the specified time
     localStorage.setItem(time, JSON.stringify(eventText));
 
     // Display confirmation message when event added
@@ -79,6 +78,7 @@ $(document).ready(function () {
     }
     return eventFromLS; // return an array of events associated with the specified time
   }
+
   // Attach the saveEvent function to the click event of saveButton
   saveButton.on("click", saveEvent);
 });
